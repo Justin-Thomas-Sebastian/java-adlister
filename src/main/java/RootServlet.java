@@ -6,20 +6,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "HelloWorldServlet", urlPatterns = "/hello")
-public class HelloWorldServlet extends HttpServlet {
+@WebServlet(name = "RootServlet", urlPatterns = "/")
+public class RootServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         res.setContentType("text/html");
         PrintWriter out = res.getWriter();
-        String paramName = "name";
-        String parameterValue = req.getParameter(paramName);
-
-        if(parameterValue == null){
-            out.println("<h1>Hello, stranger</h1>");
-        } else {
-            out.println("<h1>Hello, " + parameterValue + "</h1>");
-        }
+        out.println("<h1>This is the home page</h1>");
+        out.println("<h1>Click <a href='http://localhost:8080/hello'>here</a> to go to hello world.</h1>");
+        out.println("<h1>Click <a href='http://localhost:8080/count'>here</a> to go to view count.</h1>");
     }
 }
