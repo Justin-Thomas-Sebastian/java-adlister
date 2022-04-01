@@ -6,9 +6,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "PizzaServlet", urlPatterns = "/pizza")
+@WebServlet(name = "PizzaServlet", urlPatterns = "/pizza-order")
 public class PizzaServlet extends HttpServlet {
     protected List<String> toppingsList = new ArrayList<>();
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.sendRedirect("pizza-order.jsp");
+    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // get values from pizza order form

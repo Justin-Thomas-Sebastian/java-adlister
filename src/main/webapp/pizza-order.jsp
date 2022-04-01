@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<form method="POST" action="/pizza">
+<form method="POST" action="/pizza-order">
     <label for="crust">Crust Type:</label>
     <select name="crust" id="crust">
         <option value="stuffed">Stuffed Crust</option>

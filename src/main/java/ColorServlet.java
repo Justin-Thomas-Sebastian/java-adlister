@@ -13,7 +13,6 @@ public class ColorServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String color = request.getParameter("color");
-        System.out.println(color);
         request.setAttribute("color", color);
         request.getRequestDispatcher("/viewcolor").forward(request, response);
     }
