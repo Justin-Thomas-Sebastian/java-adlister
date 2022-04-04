@@ -1,3 +1,5 @@
+package controllers;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -6,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "PizzaServlet", urlPatterns = "/pizza-order")
+@WebServlet(name = "controllers.PizzaServlet", urlPatterns = "/pizza-order")
 public class PizzaServlet extends HttpServlet {
     protected List<String> toppingsList = new ArrayList<>();
 

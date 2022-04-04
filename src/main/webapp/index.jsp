@@ -6,5 +6,6 @@
 </head>
 <body>
     <%@ include file="partials/navbar.jsp" %>
+    <h1>HOMEPAGE</h1>
 </body>
 </html>
