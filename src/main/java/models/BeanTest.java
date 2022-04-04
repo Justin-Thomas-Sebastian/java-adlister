@@ -31,27 +31,26 @@ public class BeanTest {
         author3.setLastName("Sebastian");
 
         quote1.setId(1);
-        quote1.setAuthorId(1);
+        quote1.setAuthor(author1);
         quote1.setContent("The purpose of a storyteller is not to tell you how to think, but to give you questions to think upon.");
         quote2.setId(2);
-        quote2.setAuthorId(2);
+        quote2.setAuthor(author2);
         quote2.setContent("A reader lives a thousand lives before he dies, said Jojen. The man who never reads lives only one.");
         quote3.setId(3);
-        quote3.setAuthorId(3);
+        quote3.setAuthor(author3);
         quote3.setContent("I'm hungry.");
 
         ArrayList<Quote> quotes = new ArrayList<>();
-        ArrayList<Author> authors = new ArrayList<>();
         quotes.add(quote1);
         quotes.add(quote2);
         quotes.add(quote3);
-        authors.add(author1);
-        authors.add(author2);
-        authors.add(author3);
 
         for(int i = 0; i < quotes.size(); i++){
-            System.out.println("Author: " + authors.get(i).getFirstName() + " " + authors.get(i).getLastName());
-            System.out.println("Quote: " + quotes.get(i).getContent());
+            String firstName = quotes.get(i).getAuthor().getFirstName();
+            String lastName = quotes.get(i).getAuthor().getLastName();
+            String content = quotes.get(i).getContent();
+            System.out.println("Author: " + firstName + " " + lastName);
+            System.out.println("Quote: " + content);
         }
     }
 }
