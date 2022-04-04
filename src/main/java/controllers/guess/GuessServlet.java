@@ -1,4 +1,4 @@
-package controllers;
+package controllers.guess;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Random;
 
-@WebServlet(name = "controllers.GuessServlet", urlPatterns = "/guess")
+@WebServlet(name = "controllers.guess.GuessServlet", urlPatterns = "/guess")
 public class GuessServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.sendRedirect("/guess.jsp");
