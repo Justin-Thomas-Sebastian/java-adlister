@@ -2,6 +2,6 @@
     <h1 style="color:white;">This is an ugly navbar</h1>
     <ul>
         <li><a href="/index.jsp">Home</a></li>
-        <li><a href="login.jsp">Login Page</a></li>
+        <li><a href="/login">Login Page</a></li>
     </ul>
 </nav>

@@ -6,6 +6,6 @@
 </head>
 <body>
     <%@ include file="partials/navbar.jsp" %>
-    <p>Logged In</p>
+    <p>Logged in as ${username}</p>
 </body>
 </html>

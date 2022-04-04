@@ -1,3 +1,5 @@
+package controllers;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -6,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "CountServlet", urlPatterns = "/count")
+@WebServlet(name = "controllers.CountServlet", urlPatterns = "/count")
 public class CountServlet extends HttpServlet {
     private int viewCounter = 0;
 
