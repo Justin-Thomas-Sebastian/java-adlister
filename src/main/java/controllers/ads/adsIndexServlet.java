@@ -1,4 +1,4 @@
-package controllers;
+package controllers.ads;
 
 import dao.*;
 import models.*;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "controllers.adsIndexServlet", urlPatterns = "/ads")
+@WebServlet(name = "controllers.ads.adsIndexServlet", urlPatterns = "/ads")
 public class adsIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         Ads adsList = adsDaoFactory.getAdsDao();
