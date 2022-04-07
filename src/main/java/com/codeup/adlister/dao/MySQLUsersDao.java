@@ -1,15 +1,9 @@
 package com.codeup.adlister.dao;
 
-import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MySQLUsersDao implements Users{
     private Connection connection = null;
@@ -42,7 +36,7 @@ public class MySQLUsersDao implements Users{
             rs.next();
             return rs.getLong(1);
         } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving all ads.", e);
+            throw new RuntimeException("Error inserting user", e);
         }
     }
 
@@ -64,7 +58,23 @@ public class MySQLUsersDao implements Users{
                     rs.getString("password")
             );
         } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving all ads.", e);
+            throw new RuntimeException("Error retrieving user.", e);
+        }
+    }
+
+    public Long getLastId(){
+        try {
+            String sql = "SELECT MAX(id) FROM users";
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            long highestId = 0;
+            while(rs.next()){
+                highestId = rs.getLong("max(id)");
+            }
+            return highestId;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving user ID", e);
         }
     }
 }
