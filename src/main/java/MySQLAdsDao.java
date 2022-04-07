@@ -10,9 +10,9 @@ public class MySQLAdsDao implements Ads{
     public MySQLAdsDao(Config config) throws SQLException {
         DriverManager.registerDriver(new Driver());
         connection = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/adlister_db?allowPublicKeyRetrieval=true&useSSL=false",
-                "root",
-                "codeup"
+                config.getUrl(),
+                config.getUsername(),
+                config.getPassword()
         );
     }
 
