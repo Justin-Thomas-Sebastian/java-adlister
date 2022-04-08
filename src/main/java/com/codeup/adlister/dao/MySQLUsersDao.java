@@ -50,13 +50,16 @@ public class MySQLUsersDao implements Users{
             stmt.setString(1, searchTermWithWildcards);
 
             ResultSet rs = stmt.executeQuery();
-            rs.next();
-            return new User(
-                    rs.getLong("id"),
-                    rs.getString("username"),
-                    rs.getString("email"),
-                    rs.getString("password")
-            );
+            if(!rs.next()){
+                return null;
+            } else {
+                return new User(
+                        rs.getLong("id"),
+                        rs.getString("email"),
+                        rs.getString("username"),
+                        rs.getString("password")
+                );
+            }
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving user.", e);
         }

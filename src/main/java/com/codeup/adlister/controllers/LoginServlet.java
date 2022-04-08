@@ -28,15 +28,20 @@ public class LoginServlet extends HttpServlet {
         // TODO: make sure we find a user with that username
         // TODO: check the submitted password against what you have in your database
         User user = DaoFactory.getUsersDao().findByUsername(username);
-        System.out.println("user.getUsername() = " + user.getUsername());
-        System.out.println("user.getPassword() = " + user.getPassword());
+
+        if (user == null) {
+            response.sendRedirect("/login");
+            return;
+        }
+
         boolean validAttempt = username.equals(user.getUsername()) && password.equals(user.getPassword());
 
         if (validAttempt) {
             // TODO: store the logged in user object in the session, instead of just the username
-            request.getSession().setAttribute("user", username);
+            request.getSession().setAttribute("user", user);
             response.sendRedirect("/profile");
         } else {
+            System.out.println("login failed.");
             response.sendRedirect("/login");
         }
     }
